@@ -34,7 +34,7 @@ comments:
   disqus_url: 'https://liaokeyu.disqus.com/embed.js'
 
 #gitment 评论功能
-comment_gitment_repo: muddyway
+comment_gitment_repo: muddyway.github.io
 comment_gitment_clientId: 9266542f3a43fecd7ac2
 comment_gitment_clientSecret: 58b3f58e40dd3b509ea8a93dec98e2972da5e65d
 
