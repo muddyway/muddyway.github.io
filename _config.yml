@@ -10,6 +10,7 @@ baseurl: ''
 # Navigation links
 nav:
   home: '/'
+  olday: 'www.olday.cn'
   tags: '/tags.html'
 
 # Footer
