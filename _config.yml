@@ -32,13 +32,13 @@ nightMode: false
 # Comments 评论功能
 comments:
   disqus: false
-  disqus_url: 'https://liaokeyu.disqus.com/embed.js'
+  disqus_url: 'https://muddyway.disqus.com/embed.js'
 
 #gitment 评论功能
 github_username: muddyway
 comment_gitment_repo: muddyway.github.io
-comment_gitment_clientId: 9266542f3a43fecd7ac2
-comment_gitment_clientSecret: 58b3f58e40dd3b509ea8a93dec98e2972da5e65d
+comment_gitment_clientId: d58576e123fb0f444e62
+comment_gitment_clientSecret: 152d02a9c2d08d4b04ec27d866f5a541b3baf3ce
 
 
 
