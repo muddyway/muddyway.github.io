@@ -1,6 +1,12 @@
 [
   
     {
+      "title"    : "Ubuntu 18.04 Jekyll github 搭建个人网站",
+      "tags"     : "web",
+      "url"      : "/2019/02/08/github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99.html"
+    } ,
+  
+    {
       "title"    : "MathJax Test",
       "tags"     : "mathjax",
       "url"      : "/2017/07/30/mathjax-test.html"
@@ -40,12 +46,6 @@
       "title"    : "Hello Jekyll",
       "tags"     : "jekyll222",
       "url"      : "/2017/04/18/hello-jekyll.html"
-    } ,
-  
-    {
-      "title"    : "Hello Jekyll",
-      "tags"     : "jekyll",
-      "url"      : "/2017/04/18/hello-jekyll(%E5%A4%8D%E4%BB%B6).html"
     } ,
   
     {

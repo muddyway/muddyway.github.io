@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubuntu 18.04 Jekyll github 搭建个人网站 - muddyway的独立博客</title>
+    <meta name="author"  content="muddyway">
+    <meta name="description" content="Ubuntu 18.04 Jekyll github 搭建个人网站">
+    <meta name="keywords"  content="web">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ubuntu 18.04 Jekyll github 搭建个人网站 - muddyway的独立博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/2019/02/08/github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99.html">
+    <meta property="og:description" content="...................">
+    <meta property="og:site_name" content="muddyway的独立博客">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	
+	<!--
+Author: Ray-Eldath
+refer to:
+ - http://docs.mathjax.org/en/latest/options/index.html
+-->
+
+	<script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+		jax: ["input/TeX", "output/HTML-CSS"],
+		tex2jax: {
+			inlineMath: [ ["$", "$"] ],
+			displayMath: [ ["$$", "$$"] ],
+			skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+		},
+		"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+      });
+    </script>
+
+	
+    <!--
+Author: Ray-Eldath
+-->
+<style>
+    .markdown-body .anchor{
+        float: left;
+        margin-top: -8px;
+        margin-left: -20px;
+        padding-right: 4px;
+        line-height: 1;
+        opacity: 0;
+    }
+    
+    .markdown-body .anchor .anchor-icon{
+        font-size: 15px
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        let nodes = document.querySelector(".markdown-body").querySelectorAll("h1,h2,h3")
+        for(let node of nodes) {
+            var anchor = document.createElement("a")
+            var anchorIcon = document.createElement("i")
+            anchorIcon.setAttribute("class", "fa fa-anchor fa-lg anchor-icon")
+            anchorIcon.setAttribute("aria-hidden", true)
+            anchor.setAttribute("class", "anchor")
+            anchor.setAttribute("href", "#" + node.getAttribute("id"))
+            
+            anchor.onmouseover = function() {
+                this.style.opacity = "0.4"
+            }
+            
+            anchor.onmouseout = function() {
+                this.style.opacity = "0"
+            }
+            
+            anchor.appendChild(anchorIcon)
+            node.appendChild(anchor)
+        }
+    })
+</script>
+</head>
+
+
+<body>
+  <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+  <input id="nm-switch" type="hidden" value="false"> <header class="g-header">
+    <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i>
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">home</a></li>
+            
+            <li><a href="https://www.olday.cn">olday</a></li>
+            
+            <li><a href="/tags.html">tags</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+  <header
+    class="g-banner post-header post-pattern-circuitBoard bgcolor-default "
+    data-theme="default"
+  >
+    <div class="post-wrapper">
+      <div class="post-tags">
+        
+          
+            <a href="tags#web" class="post-tag">web</a>
+          
+        
+      </div>
+      <h1>Ubuntu 18.04 Jekyll github 搭建个人网站</h1>
+      <div class="post-meta">
+        <span class="post-meta-item"><i class="iconfont icon-author"></i>muddyway</span>
+        <time class="post-meta-item" datetime="19-02-08"><i class="iconfont icon-date"></i>08 Feb 2019</time>
+      </div>
+    </div>
+    
+    <div class="filter"></div>
+      <div class="post-cover" style="background: url('') center no-repeat; background-size: cover;"></div>
+    
+  </header>
+
+  <div class="post-content visible">
+    
+
+    <article class="markdown-body">
+      <p>[TOC]</p>
+
+<h3 id="目的">目的：</h3>
+
+<p>搭建个人博客，记录与分享学习过程与经历。</p>
+
+<h3 id="为什么选github">为什么选GITHUB：</h3>
+
+<p>稳定、域名较短可绑定、不必担心空间、使用git上传方便、没有后端和数据库但可将评论放入gitment</p>
+
+<p>便于与工程绑定。</p>
+
+<h2 id="创建usernamegithubio远程仓库">创建username.github.io远程仓库：</h2>
+
+<p>​	在github右上角+符号展开选择new repository</p>
+
+<p>​</p>
+
+<p><img src="https://muddyway.github.io/screenshot/screenshot-github.com-2019.02.08-14-21-43.png" alt="" /></p>
+
+<h3 id="环境安装">环境安装：</h3>
+
+<h4 id="1安装ruby与jekyll">1.安装ruby与Jekyll</h4>
+
+<p>安装Jekyll同时可以自动安装好RUBY环境</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt get install Jekyll
+</code></pre></div></div>
+
+<h4 id="2选择模板">2.选择模板</h4>
+
+<p>选择喜爱的<a href="http://jekyllthemes.org/">Jekyll模板</a> ，我选择jekyll-theme-H2O <a href="http://liaokeyu.com/">在线预览 Live Demo →</a></p>
+
+<h4 id="3生成项目文件">3.生成项目文件</h4>
+
+<p>如果之前未使用过github ssh key 或未创建github全局用户名，请参阅</p>
+
+<p>http://www.runoob.com/w3cnote/git-guide.html</p>
+
+<p>在主目录中新建文件夹github并初始化(当前目录：muddyway@l:~/github$）</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> git init
+</code></pre></div></div>
+
+<p>并在当前目录下载jekyll-theme-H2O：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:kaeyleo/jekyll-theme-H2O.git
+</code></pre></div></div>
+
+<h4 id="4插件安装与版本升级">4.插件安装与版本升级</h4>
+
+<p>如果你已经安装了Jekyll，请检查版本是否为3.0.x，你可以使用</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem update jekyll
+</code></pre></div></div>
+
+<p>命令进行升级。</p>
+
+<p>H2O主题基于Jekyll 3.2.1版本，不同版本之间可能存在部分差异，具体请参考<a href="https://jekyllrb.com/news/">官方更新文档</a></p>
+
+<p>安装Jekyll的分页插件：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install jekyll-paginate
+</code></pre></div></div>
+
+<h3 id="运行工程">运行工程：</h3>
+
+<p>站点信息配置、写博客见git clone后README.md文件</p>
+
+<p>进入工程文件夹并运行ruby工程：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>jekyll-theme-H2O
+jekyll serve
+</code></pre></div></div>
+
+<p>在 http://127.0.0.1:4000/ 预览工程</p>
+
+<h3 id="安装gitment评论系统并上传">安装gitment评论系统并上传：</h3>
+
+<p><a href="https://frankjkl.github.io/2019/01/08/blogbuild-%E5%9C%A8Jekyll%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0gitment%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/">参考</a></p>
+
+<h4 id="1在setting---oauth-application-注册页面完成注册">1、在<a href="https://github.com/settings/applications/new">setting - OAuth Application 注册页面</a>完成注册</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Application Name: gitment评论 //随便填
+Homepage Url: https://frankjkl.github.io //博客的域名
+Application description: //随便填，留空也可以
+Authorization Callback URL: https://frankjkl.github.io //一定要写自己Github Pages的URL
+</code></pre></div></div>
+
+<p>注册成功后会得到<code class="highlighter-rouge">Client ID</code>和<code class="highlighter-rouge">Client Secret</code></p>
+
+<h4 id="2在jekyll博客调用gitment">2、在jekyll博客调用gitment</h4>
+
+<p>如gitment项目页Readme所示，在你需要添加评论系统的地方，一般是<code class="highlighter-rouge">_layout/</code>目录下的 <code class="highlighter-rouge">post.html</code>, 添加一下代码</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div id="container"&gt;&lt;/div&gt;
+&lt;link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css"&gt;
+&lt;script src="https://jjeejj.github.io/js/gitment.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+var gitment = new Gitment({
+  id: '\{\{ page.date \}\}', #对应文章评论所形成issue的label，默认为文章的url,为了防止url过长导致评论初始化失败，这里设置label为文章yaml中的时间。这一项无需更改，\为转义字符，应用时需要删掉
+  owner: 'FrankJKL', #Github Pages博客所在的github账户名
+  repo: 'FrankJKL.github.io', #Github Pages博客所在仓库名
+  oauth: {
+    client_id: 'xxxxxxx', #第1步所申请到的Client ID
+    client_secret: 'xxxxxxxxxx',#第1步所申请到的Client Secret
+  },
+})
+gitment.render('container')
+&lt;/script&gt;
+</code></pre></div></div>
+
+<p>填写完上面的内容，把代码保存上传到github就可以了。</p>
+
+<p>上传代码：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+<span class="c">#将红色标记修改过文件加入缓存区</span>
+git add <span class="k">*</span> 
+
+git commit <span class="nt">-m</span> <span class="s1">'upload init blog'</span>
+<span class="c">#将两个username换成你的github 用户名</span>
+git remote add origin git@github.com:username/username.github.io.git
+
+git push <span class="nt">-u</span> origin master
+</code></pre></div></div>
+
+<h4 id="3为每篇博文初始化评论系统">3、为每篇博文初始化评论系统</h4>
+
+<p>由于gitment的原理是为每一篇博文以其YAML中的标题作为标识创建一个github issue， 对该篇博客的评论就是对这个issue的评论。因此，我们需要为每篇博文初始化一下评论系统，初始化后，会在你的github上会创建相对应的issue。</p>
+
+<ol>
+  <li>
+    <p>上面第2步代码添加成功并上传后，你就可以在你的博文页下面看到一个评论框，还有看到以下错误<code class="highlighter-rouge">Error: Comments Not Initialized</code>，提示该篇博文的评论系统还没初始化</p>
+
+    <p><img src="https://frankjkl.github.io/assert/1546944230319.png" alt="1546944230319" /></p>
+  </li>
+  <li>
+    <p>点击<code class="highlighter-rouge">Login with GitHub</code>后，使用自己的github账号（必须跟第二步owner用户名相同的账号）登录后，就可以在上面错误信息处看到一个<code class="highlighter-rouge">Initialize Comments</code>的按钮</p>
+
+    <p><img src="https://jacobpan3g.github.io/img/gitment-in-jekyll.png" alt="img" /></p>
+  </li>
+  <li>
+    <p>点击<code class="highlighter-rouge">Initialize Comments</code>按钮后，就可以开始对该篇博文开始评论了， 同时也可以在对应的github仓库看到相应的issue</p>
+
+    <p><img src="https://frankjkl.github.io/assert/1546944090342.png" alt="1546944090342" /></p>
+  </li>
+</ol>
+
+<h4 id="遇到的一些坑">遇到的一些坑</h4>
+
+<h4 id="errornot-found">Error：NOT FOUND</h4>
+
+<p>owner或者repo配置错误了，照着第二步来就好，网页端生成后如下</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+&lt;script&gt;
+    var gitment = new Gitment({
+        id: '\{\{ page.date \}\}', #\为转义字符，应用时需要删掉
+        owner: 'FrankJKL',
+        repo: 'FrankJKL.github.io',
+        oauth: {
+            client_id: 'xxxxxxxx',
+            client_secret: 'xxxxxxxxxxxxxxxxxxxxxxxxx',
+        },
+    })
+    gitment.render('container')
+&lt;/script&gt;
+...
+</code></pre></div></div>
+
+<h4 id="error-comments-not-initialized">Error: Comments Not Initialized</h4>
+
+<ul>
+  <li>在步骤一中，给<code class="highlighter-rouge">Authorization callback URL</code>指定的地址错了</li>
+  <li>还没有在该页面的Gitment评论区登陆GitHub账号</li>
+</ul>
+
+<h4 id="object-progressevent">Object ProgressEvent</h4>
+
+<p>最近gitment作者的服务器过期了，所以登陆GitHub时一直报Object ProgressEvent。我在本文第二步添加的gitment代码是没有这个问题的。</p>
+
+<p>解决：</p>
+
+<p>将<code class="highlighter-rouge">_layout/post.html</code>中gitment的代码：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css"&gt;
+&lt;script src="//imsun.github.io/gitment/dist/gitment.browser.js"&gt;&lt;/script&gt;
+</code></pre></div></div>
+
+<p>修改为</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css"&gt;
+&lt;script src="https://jjeejj.github.io/js/gitment.js"&gt;&lt;/script&gt;
+</code></pre></div></div>
+
+<p>或</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css"&gt;
+&lt;script src="https://www.wenjunjiang.win/js/gitment.js"&gt;&lt;/script&gt;
+</code></pre></div></div>
+
+<p>登陆时就不会再报错了，这是别人新搭建的服务器。参考https://github.com/jjeejj/jjeejj.github.io/issues/8</p>
+
+<h4 id="errorvalidation-failed">Error：validation failed</h4>
+
+<p><strong>发生时间：</strong>评论的初始化时</p>
+
+<p>原因：由于gitment的评论是基于GitHub issue的，所以评论初始化时，会生成文章对应的issue，以及通过https://jjeejj.github.io/js/gitment.js生成issue的label。其中的labels有两个，一个是gitment，另一个就是文章的URL，但是label的最大长度限制是50个字符，而我们的URL中包含域名与文章名，有时会超出限制。所以才会发生validation failed</p>
+
+<p><strong>解决：</strong></p>
+
+<p>gitment.js中<code class="highlighter-rouge">labels: labels.concat(['gitment', id])</code>id默认为<code class="highlighter-rouge">window.location.href</code>也就是文章的URL，这里的id的作用是每篇文章的评论是要根据id动态加载的，写死的话导致所有的文章共享一个issue。参考前面第二步中将id修改为<code class="highlighter-rouge">'\{\{ page.date \}\}'\为转义字符，应用时需要删掉</code>，就可以覆盖gitment.js中的id。这样传给github issue的label是定长的，不会超过长度限制。同时<code class="highlighter-rouge">date</code>可以自己写，只要精确到分秒，区分文章不是问题。Good job!</p>
+
+<ul>
+  <li>PS：一个date的例子：<code class="highlighter-rouge">date: 2019-01-07 00:00:00 +0000</code> 这个date是写到文章顶部的YAML中</li>
+  <li>PS：<a href="https://github.com/xjzsq">xjzsq</a>的方法也很好，思想是用副标题作id，可以看下<a href="http://www.xjdesyxx.top/2018/02/07/errsln/">他的文章</a></li>
+</ul>
+
+<iframe type="text/html" width="100%" height="385" src="http://www.youtube.com/embed/gfmjMWjn-Xg" frameborder="0"></iframe>
+
+    </article>
+
+    
+    <div class="social-share-wrapper">
+      <div class="social-share"></div>
+    </div>
+    
+  </div>
+
+  <section class="author-detail">
+    <section class="post-footer-item author-card">
+      <div class="avatar">
+        <img src="/assets/img/profile.png" alt="">
+      </div>
+      <div class="author-name" rel="author">muddyway</div>
+      <div class="bio">
+        <p></p>
+      </div>
+      
+      <ul class="sns-links">
+        
+        <li>
+          <a href="//weibo.com/muddyway" target="_blank">
+                    <i class="iconfont icon-weibo"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//juejin.im/user/muddyway" target="_blank">
+                    <i class="iconfont icon-juejin"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//www.instagram.com/muddyway" target="_blank">
+                    <i class="iconfont icon-instagram"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//github.com/muddyway" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+        </li>
+        
+      </ul>
+      
+    </section>
+    <section class="post-footer-item read-next">
+      
+
+      
+      <div class="read-next-item">
+        <a href="/2017/07/30/mathjax-test.html" class="read-next-link"></a>
+          <section>
+            <span>MathJax Test</span>
+            <p>mathjax in markdown :)</p>
+          </section>
+          
+      </div>
+      
+    </section>
+    
+  </section>
+
+  <footer class="g-footer">
+  <section>muddyway的独立博客 ©
+  
+  
+    2017
+    -
+  
+  2019
+  </section>
+  <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+</footer>
+
+
+  <script src="/assets/js/social-share.min.js"></script>
+  <script>
+    socialShare('.social-share', {
+      sites: [
+        
+          'wechat'
+          ,
+          
+        
+          'weibo'
+          ,
+          
+        
+          'douban'
+          ,
+          
+        
+          'twitter'
+          
+        
+      ],
+      wechatQrcodeTitle: "分享到微信朋友圈",
+      wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+  </script>
+
+
+
+
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+		id: '<%= page.date %>',
+        owner: 'muddyway',
+        repo: 'muddyway.github.io',
+        oauth: {
+            client_id: '9266542f3a43fecd7ac2',
+            client_secret: '58b3f58e40dd3b509ea8a93dec98e2972da5e65d',
+        },
+    });
+    gitment.render('gitmentContainer')
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+  <script src="/assets/js/prism.js"></script>
+  <script src="/assets/js/index.min.js"></script>
+</body>
+
+</html>

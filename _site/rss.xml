@@ -3,11 +3,243 @@
   <channel>
     <title>muddyway的独立博客</title>
     <description>...................</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 08 Feb 2019 13:54:58 +0800</pubDate>
-    <lastBuildDate>Fri, 08 Feb 2019 13:54:58 +0800</lastBuildDate>
-    <generator>Jekyll v3.8.3</generator>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 14 Sep 2019 15:43:29 +0800</pubDate>
+    <lastBuildDate>Sat, 14 Sep 2019 15:43:29 +0800</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Ubuntu 18.04 Jekyll github 搭建个人网站</title>
+        <description>&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;h3 id=&quot;目的&quot;&gt;目的：&lt;/h3&gt;
+
+&lt;p&gt;搭建个人博客，记录与分享学习过程与经历。&lt;/p&gt;
+
+&lt;h3 id=&quot;为什么选github&quot;&gt;为什么选GITHUB：&lt;/h3&gt;
+
+&lt;p&gt;稳定、域名较短可绑定、不必担心空间、使用git上传方便、没有后端和数据库但可将评论放入gitment&lt;/p&gt;
+
+&lt;p&gt;便于与工程绑定。&lt;/p&gt;
+
+&lt;h2 id=&quot;创建usernamegithubio远程仓库&quot;&gt;创建username.github.io远程仓库：&lt;/h2&gt;
+
+&lt;p&gt;​	在github右上角+符号展开选择new repository&lt;/p&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://muddyway.github.io/screenshot/screenshot-github.com-2019.02.08-14-21-43.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;环境安装&quot;&gt;环境安装：&lt;/h3&gt;
+
+&lt;h4 id=&quot;1安装ruby与jekyll&quot;&gt;1.安装ruby与Jekyll&lt;/h4&gt;
+
+&lt;p&gt;安装Jekyll同时可以自动安装好RUBY环境&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt get install Jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;2选择模板&quot;&gt;2.选择模板&lt;/h4&gt;
+
+&lt;p&gt;选择喜爱的&lt;a href=&quot;http://jekyllthemes.org/&quot;&gt;Jekyll模板&lt;/a&gt; ，我选择jekyll-theme-H2O &lt;a href=&quot;http://liaokeyu.com/&quot;&gt;在线预览 Live Demo →&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;3生成项目文件&quot;&gt;3.生成项目文件&lt;/h4&gt;
+
+&lt;p&gt;如果之前未使用过github ssh key 或未创建github全局用户名，请参阅&lt;/p&gt;
+
+&lt;p&gt;http://www.runoob.com/w3cnote/git-guide.html&lt;/p&gt;
+
+&lt;p&gt;在主目录中新建文件夹github并初始化(当前目录：muddyway@l:~/github$）&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; git init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;并在当前目录下载jekyll-theme-H2O：&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone git@github.com:kaeyleo/jekyll-theme-H2O.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;4插件安装与版本升级&quot;&gt;4.插件安装与版本升级&lt;/h4&gt;
+
+&lt;p&gt;如果你已经安装了Jekyll，请检查版本是否为3.0.x，你可以使用&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem update jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;命令进行升级。&lt;/p&gt;
+
+&lt;p&gt;H2O主题基于Jekyll 3.2.1版本，不同版本之间可能存在部分差异，具体请参考&lt;a href=&quot;https://jekyllrb.com/news/&quot;&gt;官方更新文档&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;安装Jekyll的分页插件：&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem install jekyll-paginate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;运行工程&quot;&gt;运行工程：&lt;/h3&gt;
+
+&lt;p&gt;站点信息配置、写博客见git clone后README.md文件&lt;/p&gt;
+
+&lt;p&gt;进入工程文件夹并运行ruby工程：&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;jekyll-theme-H2O
+jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在 http://127.0.0.1:4000/ 预览工程&lt;/p&gt;
+
+&lt;h3 id=&quot;安装gitment评论系统并上传&quot;&gt;安装gitment评论系统并上传：&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://frankjkl.github.io/2019/01/08/blogbuild-%E5%9C%A8Jekyll%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0gitment%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/&quot;&gt;参考&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;1在setting---oauth-application-注册页面完成注册&quot;&gt;1、在&lt;a href=&quot;https://github.com/settings/applications/new&quot;&gt;setting - OAuth Application 注册页面&lt;/a&gt;完成注册&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Application Name: gitment评论 //随便填
+Homepage Url: https://frankjkl.github.io //博客的域名
+Application description: //随便填，留空也可以
+Authorization Callback URL: https://frankjkl.github.io //一定要写自己Github Pages的URL
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;注册成功后会得到&lt;code class=&quot;highlighter-rouge&quot;&gt;Client ID&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;Client Secret&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2在jekyll博客调用gitment&quot;&gt;2、在jekyll博客调用gitment&lt;/h4&gt;
+
+&lt;p&gt;如gitment项目页Readme所示，在你需要添加评论系统的地方，一般是&lt;code class=&quot;highlighter-rouge&quot;&gt;_layout/&lt;/code&gt;目录下的 &lt;code class=&quot;highlighter-rouge&quot;&gt;post.html&lt;/code&gt;, 添加一下代码&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div id=&quot;container&quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;https://jjeejj.github.io/css/gitment.css&quot;&amp;gt;
+&amp;lt;script src=&quot;https://jjeejj.github.io/js/gitment.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;
+var gitment = new Gitment({
+  id: &#39;\{\{ page.date \}\}&#39;, #对应文章评论所形成issue的label，默认为文章的url,为了防止url过长导致评论初始化失败，这里设置label为文章yaml中的时间。这一项无需更改，\为转义字符，应用时需要删掉
+  owner: &#39;FrankJKL&#39;, #Github Pages博客所在的github账户名
+  repo: &#39;FrankJKL.github.io&#39;, #Github Pages博客所在仓库名
+  oauth: {
+    client_id: &#39;xxxxxxx&#39;, #第1步所申请到的Client ID
+    client_secret: &#39;xxxxxxxxxx&#39;,#第1步所申请到的Client Secret
+  },
+})
+gitment.render(&#39;container&#39;)
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;填写完上面的内容，把代码保存上传到github就可以了。&lt;/p&gt;
+
+&lt;p&gt;上传代码：&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git status
+&lt;span class=&quot;c&quot;&gt;#将红色标记修改过文件加入缓存区&lt;/span&gt;
+git add &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; 
+
+git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;upload init blog&#39;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#将两个username换成你的github 用户名&lt;/span&gt;
+git remote add origin git@github.com:username/username.github.io.git
+
+git push &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;3为每篇博文初始化评论系统&quot;&gt;3、为每篇博文初始化评论系统&lt;/h4&gt;
+
+&lt;p&gt;由于gitment的原理是为每一篇博文以其YAML中的标题作为标识创建一个github issue， 对该篇博客的评论就是对这个issue的评论。因此，我们需要为每篇博文初始化一下评论系统，初始化后，会在你的github上会创建相对应的issue。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;上面第2步代码添加成功并上传后，你就可以在你的博文页下面看到一个评论框，还有看到以下错误&lt;code class=&quot;highlighter-rouge&quot;&gt;Error: Comments Not Initialized&lt;/code&gt;，提示该篇博文的评论系统还没初始化&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://frankjkl.github.io/assert/1546944230319.png&quot; alt=&quot;1546944230319&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;点击&lt;code class=&quot;highlighter-rouge&quot;&gt;Login with GitHub&lt;/code&gt;后，使用自己的github账号（必须跟第二步owner用户名相同的账号）登录后，就可以在上面错误信息处看到一个&lt;code class=&quot;highlighter-rouge&quot;&gt;Initialize Comments&lt;/code&gt;的按钮&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://jacobpan3g.github.io/img/gitment-in-jekyll.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;点击&lt;code class=&quot;highlighter-rouge&quot;&gt;Initialize Comments&lt;/code&gt;按钮后，就可以开始对该篇博文开始评论了， 同时也可以在对应的github仓库看到相应的issue&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://frankjkl.github.io/assert/1546944090342.png&quot; alt=&quot;1546944090342&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;遇到的一些坑&quot;&gt;遇到的一些坑&lt;/h4&gt;
+
+&lt;h4 id=&quot;errornot-found&quot;&gt;Error：NOT FOUND&lt;/h4&gt;
+
+&lt;p&gt;owner或者repo配置错误了，照着第二步来就好，网页端生成后如下&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
+&amp;lt;script&amp;gt;
+    var gitment = new Gitment({
+        id: &#39;\{\{ page.date \}\}&#39;, #\为转义字符，应用时需要删掉
+        owner: &#39;FrankJKL&#39;,
+        repo: &#39;FrankJKL.github.io&#39;,
+        oauth: {
+            client_id: &#39;xxxxxxxx&#39;,
+            client_secret: &#39;xxxxxxxxxxxxxxxxxxxxxxxxx&#39;,
+        },
+    })
+    gitment.render(&#39;container&#39;)
+&amp;lt;/script&amp;gt;
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;error-comments-not-initialized&quot;&gt;Error: Comments Not Initialized&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;在步骤一中，给&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization callback URL&lt;/code&gt;指定的地址错了&lt;/li&gt;
+  &lt;li&gt;还没有在该页面的Gitment评论区登陆GitHub账号&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;object-progressevent&quot;&gt;Object ProgressEvent&lt;/h4&gt;
+
+&lt;p&gt;最近gitment作者的服务器过期了，所以登陆GitHub时一直报Object ProgressEvent。我在本文第二步添加的gitment代码是没有这个问题的。&lt;/p&gt;
+
+&lt;p&gt;解决：&lt;/p&gt;
+
+&lt;p&gt;将&lt;code class=&quot;highlighter-rouge&quot;&gt;_layout/post.html&lt;/code&gt;中gitment的代码：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;//imsun.github.io/gitment/style/default.css&quot;&amp;gt;
+&amp;lt;script src=&quot;//imsun.github.io/gitment/dist/gitment.browser.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;修改为&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;https://jjeejj.github.io/css/gitment.css&quot;&amp;gt;
+&amp;lt;script src=&quot;https://jjeejj.github.io/js/gitment.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;https://jjeejj.github.io/css/gitment.css&quot;&amp;gt;
+&amp;lt;script src=&quot;https://www.wenjunjiang.win/js/gitment.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;登陆时就不会再报错了，这是别人新搭建的服务器。参考https://github.com/jjeejj/jjeejj.github.io/issues/8&lt;/p&gt;
+
+&lt;h4 id=&quot;errorvalidation-failed&quot;&gt;Error：validation failed&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;发生时间：&lt;/strong&gt;评论的初始化时&lt;/p&gt;
+
+&lt;p&gt;原因：由于gitment的评论是基于GitHub issue的，所以评论初始化时，会生成文章对应的issue，以及通过https://jjeejj.github.io/js/gitment.js生成issue的label。其中的labels有两个，一个是gitment，另一个就是文章的URL，但是label的最大长度限制是50个字符，而我们的URL中包含域名与文章名，有时会超出限制。所以才会发生validation failed&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;解决：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;gitment.js中&lt;code class=&quot;highlighter-rouge&quot;&gt;labels: labels.concat([&#39;gitment&#39;, id])&lt;/code&gt;id默认为&lt;code class=&quot;highlighter-rouge&quot;&gt;window.location.href&lt;/code&gt;也就是文章的URL，这里的id的作用是每篇文章的评论是要根据id动态加载的，写死的话导致所有的文章共享一个issue。参考前面第二步中将id修改为&lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;\{\{ page.date \}\}&#39;\为转义字符，应用时需要删掉&lt;/code&gt;，就可以覆盖gitment.js中的id。这样传给github issue的label是定长的，不会超过长度限制。同时&lt;code class=&quot;highlighter-rouge&quot;&gt;date&lt;/code&gt;可以自己写，只要精确到分秒，区分文章不是问题。Good job!&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;PS：一个date的例子：&lt;code class=&quot;highlighter-rouge&quot;&gt;date: 2019-01-07 00:00:00 +0000&lt;/code&gt; 这个date是写到文章顶部的YAML中&lt;/li&gt;
+  &lt;li&gt;PS：&lt;a href=&quot;https://github.com/xjzsq&quot;&gt;xjzsq&lt;/a&gt;的方法也很好，思想是用副标题作id，可以看下&lt;a href=&quot;http://www.xjdesyxx.top/2018/02/07/errsln/&quot;&gt;他的文章&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;iframe type=&quot;text/html&quot; width=&quot;100%&quot; height=&quot;385&quot; src=&quot;http://www.youtube.com/embed/gfmjMWjn-Xg&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+</description>
+        <pubDate>Fri, 08 Feb 2019 00:00:00 +0800</pubDate>
+        <link>/2019/02/08/github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99.html</link>
+        <guid isPermaLink="true">/2019/02/08/github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99.html</guid>
+        
+        <category>web</category>
+        
+        
+      </item>
     
       <item>
         <title>MathJax Test</title>
@@ -31,8 +263,8 @@ k &amp;= m\oplus c
 &lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;公式块要想有较好的显示效果，必须在公式块标记符&lt;code class=&quot;highlighter-rouge&quot;&gt;$$&lt;/code&gt;&lt;strong&gt;前后&lt;/strong&gt;留有空行，否则公式将不能正常居中。行内公式无此问题。&lt;/p&gt;
 </description>
         <pubDate>Sun, 30 Jul 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/07/30/mathjax-test.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/07/30/mathjax-test.html</guid>
+        <link>/2017/07/30/mathjax-test.html</link>
+        <guid isPermaLink="true">/2017/07/30/mathjax-test.html</guid>
         
         <category>mathjax</category>
         
@@ -63,8 +295,8 @@ k &amp;= m\oplus c
 &lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;公式块要想有较好的显示效果，必须在公式块标记符&lt;code class=&quot;highlighter-rouge&quot;&gt;$$&lt;/code&gt;&lt;strong&gt;前后&lt;/strong&gt;留有空行，否则公式将不能正常居中。行内公式无此问题。&lt;/p&gt;
 </description>
         <pubDate>Sun, 30 Jul 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/07/30/mathjax-test(%E5%A4%8D%E4%BB%B6).html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/07/30/mathjax-test(%E5%A4%8D%E4%BB%B6).html</guid>
+        <link>/2017/07/30/mathjax-test(%E5%A4%8D%E4%BB%B6).html</link>
+        <guid isPermaLink="true">/2017/07/30/mathjax-test(%E5%A4%8D%E4%BB%B6).html</guid>
         
         <category>mathjax</category>
         
@@ -95,8 +327,8 @@ k &amp;= m\oplus c
 &lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;公式块要想有较好的显示效果，必须在公式块标记符&lt;code class=&quot;highlighter-rouge&quot;&gt;$$&lt;/code&gt;&lt;strong&gt;前后&lt;/strong&gt;留有空行，否则公式将不能正常居中。行内公式无此问题。&lt;/p&gt;
 </description>
         <pubDate>Sun, 30 Jul 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/07/30/mathjax-test(%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A4%8D%E4%BB%B6).html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/07/30/mathjax-test(%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A4%8D%E4%BB%B6).html</guid>
+        <link>/2017/07/30/mathjax-test(%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A4%8D%E4%BB%B6).html</link>
+        <guid isPermaLink="true">/2017/07/30/mathjax-test(%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A4%8D%E4%BB%B6).html</guid>
         
         <category>mathjax</category>
         
@@ -226,8 +458,8 @@ k &amp;= m\oplus c
 &lt;p&gt;这次从0到1，独自设计、开发再到发布大约用了一周时间，也算完成一个小小的开源项目了，后续也将持续完善和更新，欢迎&lt;a href=&quot;https://github.com/kaeyleo/jekyll-theme-H2O&quot;&gt;Star&lt;/a&gt;。&lt;/p&gt;
 </description>
         <pubDate>Tue, 18 Apr 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/04/18/new-theme-h2o.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/04/18/new-theme-h2o.html</guid>
+        <link>/2017/04/18/new-theme-h2o.html</link>
+        <guid isPermaLink="true">/2017/04/18/new-theme-h2o.html</guid>
         
         <category>jekyll</category>
         
@@ -361,8 +593,8 @@ k &amp;= m\oplus c
 &lt;p&gt;这次从0到1，独自设计、开发再到发布大约用了一周时间，也算完成一个小小的开源项目了，后续也将持续完善和更新，欢迎&lt;a href=&quot;https://github.com/kaeyleo/jekyll-theme-H2O&quot;&gt;Star&lt;/a&gt;。&lt;/p&gt;
 </description>
         <pubDate>Tue, 18 Apr 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/04/18/new-theme-h2o(%E5%A4%8D%E4%BB%B6).html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/04/18/new-theme-h2o(%E5%A4%8D%E4%BB%B6).html</guid>
+        <link>/2017/04/18/new-theme-h2o(%E5%A4%8D%E4%BB%B6).html</link>
+        <guid isPermaLink="true">/2017/04/18/new-theme-h2o(%E5%A4%8D%E4%BB%B6).html</guid>
         
         <category>jekyll</category>
         
@@ -496,8 +728,8 @@ k &amp;= m\oplus c
 &lt;p&gt;这次从0到1，独自设计、开发再到发布大约用了一周时间，也算完成一个小小的开源项目了，后续也将持续完善和更新，欢迎&lt;a href=&quot;https://github.com/kaeyleo/jekyll-theme-H2O&quot;&gt;Star&lt;/a&gt;。&lt;/p&gt;
 </description>
         <pubDate>Tue, 18 Apr 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/04/18/new-theme-h2o(%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A4%8D%E4%BB%B6).html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/04/18/new-theme-h2o(%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A4%8D%E4%BB%B6).html</guid>
+        <link>/2017/04/18/new-theme-h2o(%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A4%8D%E4%BB%B6).html</link>
+        <guid isPermaLink="true">/2017/04/18/new-theme-h2o(%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A4%8D%E4%BB%B6).html</guid>
         
         <category>jekyll</category>
         
@@ -533,8 +765,8 @@ k &amp;= m\oplus c
 &lt;iframe type=&quot;text/html&quot; width=&quot;100%&quot; height=&quot;385&quot; src=&quot;http://www.youtube.com/embed/gfmjMWjn-Xg&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
 </description>
         <pubDate>Tue, 18 Apr 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/04/18/hello-jekyll.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/04/18/hello-jekyll.html</guid>
+        <link>/2017/04/18/hello-jekyll.html</link>
+        <guid isPermaLink="true">/2017/04/18/hello-jekyll.html</guid>
         
         <category>jekyll222</category>
         
@@ -564,39 +796,8 @@ k &amp;= m\oplus c
 &lt;iframe type=&quot;text/html&quot; width=&quot;100%&quot; height=&quot;385&quot; src=&quot;http://www.youtube.com/embed/gfmjMWjn-Xg&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
 </description>
         <pubDate>Tue, 18 Apr 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/04/18/hello-jekyll(%E5%A4%8D%E4%BB%B6).html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/04/18/hello-jekyll(%E5%A4%8D%E4%BB%B6).html</guid>
-        
-        <category>jekyll</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Hello Jekyll</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;Transform your plain text into static websites and blogs.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;welcome&quot;&gt;Welcome&lt;/h3&gt;
-
-&lt;p&gt;This site aims to be a comprehensive guide to Jekyll. We’ll cover topics such as getting your site up and running, creating and managing your content, customizing the way your site works and looks, deploying to various environments, and give you some advice on participating in the future development of Jekyll itself.&lt;/p&gt;
-
-&lt;h3 id=&quot;so-what-is-jekyll-exactlypermalink&quot;&gt;So what is Jekyll, exactly?Permalink&lt;/h3&gt;
-
-&lt;p&gt;Jekyll is a simple, blog-aware, static site generator. It takes a template directory containing raw text files in various formats, runs it through a converter (like &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt;) and our &lt;a href=&quot;https://github.com/Shopify/liquid/wiki&quot;&gt;Liquid&lt;/a&gt; renderer, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. Jekyll also happens to be the engine behind GitHub Pages, which means you can use Jekyll to host your project’s page, blog, or website from GitHub’s servers for free.&lt;/p&gt;
-
-&lt;h3 id=&quot;helpful-hintspermalink&quot;&gt;Helpful HintsPermalink&lt;/h3&gt;
-
-&lt;p&gt;Throughout this guide there are a number of small-but-handy pieces of information that can make using Jekyll easier, more interesting, and less hazardous. Here’s what to look out for.&lt;/p&gt;
-
-&lt;h3 id=&quot;video-test&quot;&gt;Video Test&lt;/h3&gt;
-
-&lt;iframe type=&quot;text/html&quot; width=&quot;100%&quot; height=&quot;385&quot; src=&quot;http://www.youtube.com/embed/gfmjMWjn-Xg&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
-</description>
-        <pubDate>Tue, 18 Apr 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/04/18/hello-jekyll(%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A4%8D%E4%BB%B6).html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/04/18/hello-jekyll(%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A4%8D%E4%BB%B6).html</guid>
+        <link>/2017/04/18/hello-jekyll(%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A4%8D%E4%BB%B6).html</link>
+        <guid isPermaLink="true">/2017/04/18/hello-jekyll(%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A4%8D%E4%BB%B6).html</guid>
         
         <category>jekyll</category>
         
